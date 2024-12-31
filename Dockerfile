@@ -3,11 +3,8 @@ FROM php:8.3-fpm
 
 RUN php -v
 
-# Install dependensi yang diperlukan oleh PHP-FPM
-# RUN apt-get update && apt-get install -y \
-RUN apt-get update && apt-get install libzip-dev \
-    zip \
-    unzip
+# Activate extensi pgsql
+RUN docker-php-ext-install pdo_mysql pdo_pgsql
 
 
 # Install Composer
@@ -20,8 +17,14 @@ RUN composer
 # Set working directory di dalam container
 WORKDIR /var/www/html
 
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
 # Copy file composer.json dan composer.lock ke dalam container
 COPY composer.json composer.lock ./
+
+
 
 # install dependensi composer
 RUN composer install
