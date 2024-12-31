@@ -5,7 +5,7 @@ RUN php -v
 
 # Install dependensi yang diperlukan oleh PHP-FPM
 # RUN apt-get update && apt-get install -y \
-RUN libzip-dev \
+RUN apt-get update && apt-get install libzip-dev \
     zip \
     unzip
 
