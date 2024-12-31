@@ -3,8 +3,10 @@ FROM php:8.3-fpm
 
 RUN php -v
 
-# Activate extensi pgsql
-RUN docker-php-ext-install pdo_mysql pdo_pgsql
+# Activate extensi PHP yang dibutuhkan oleh Laravel
+RUN apt-get install -y \
+    libpq-dev  libpq-dev \
+    && docker-php-ext-install pdo_mysql pdo_pgsql
 
 
 # Install Composer
