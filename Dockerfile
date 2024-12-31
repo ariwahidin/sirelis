@@ -9,6 +9,11 @@ RUN composer --version
 
 RUN composer 
 
+# Set working directory di dalam container
+WORKDIR /var/www/html
+
+# Copy file composer.json dan composer.lock ke dalam container
+COPY composer.json composer.lock ./
 
 # install dependensi composer
 RUN composer install
