@@ -4,8 +4,8 @@ FROM php:8.3-fpm
 RUN php -v
 
 # Install dependensi yang diperlukan oleh PHP-FPM
-RUN apt-get update && apt-get install -y \
-    libzip-dev \
+# RUN apt-get update && apt-get install -y \
+RUN libzip-dev \
     zip \
     unzip
 
