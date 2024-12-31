@@ -20,8 +20,8 @@ RUN composer
 WORKDIR /var/www/html
 
 # Set permissions
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# RUN chown -R www-data:www-data /var/www/html \
+#     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Copy file composer.json dan composer.lock ke dalam container
 COPY composer.json composer.lock ./
