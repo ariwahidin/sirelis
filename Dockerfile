@@ -9,6 +9,15 @@ RUN composer --version
 
 RUN composer 
 
+# Install dependensi yang diperlukan
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    zip \
+    && docker-php-ext-install zip
+
+# install dependensi composer
+RUN composer install
+
 # Ekspor port untuk PHP-FPM
 EXPOSE 9000
 
