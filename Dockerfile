@@ -7,7 +7,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 RUN composer --version
 
-RUN composer install
+RUN composer 
 
 # Ekspor port untuk PHP-FPM
 EXPOSE 9000
