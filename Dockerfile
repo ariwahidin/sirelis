@@ -5,7 +5,7 @@ FROM php:8.2-fpm
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install Composer dependencies
-RUN composer install --optimize-autoloader --no-dev
+RUN composer --version
 
 # Ekspor port untuk PHP-FPM
 EXPOSE 9000
